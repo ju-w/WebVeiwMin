@@ -11,15 +11,14 @@ class HtmlMin : AppCompatActivity() {
 
     var html =
         """
-        <html lang="jp">
+        <html>
         <style>
-        body {
-            font-family: Noto; font-style: sans;
-        }
         </style>
         <body>This is my <b>Html</b> öäü.
 
-        <div> Some japanese 泡浅い褐 <div />
+        <div lang="en"> Some japanese 泡浅い褐 lang="en"<div />
+        <div lang="ja"> Some japanese 泡浅い褐 lang="ja"<div />
+        <div lang="zh-Hans"> Some japanese 泡浅い褐 lang="zh-Hans"<div />
 
         </body>
         </html>
@@ -33,16 +32,16 @@ class HtmlMin : AppCompatActivity() {
 
 
         // This does not change anyting
-//        val settings = webView.getSettings()
-//        settings.setDefaultTextEncodingName("utf-8")
+        val settings = webView.getSettings()
+        settings.setDefaultTextEncodingName("utf-8")
 
         // Read local string
-//        webView.loadData(html, "text/html; charset=utf-8", null)
+        webView.loadData(html, "text/html; charset=utf-8", null)
 //        webView.loadData(html, "text/html", "utf-8")
 
 
         // Read from website
-        webView.loadUrl("https://www.w3.org/People/D%C3%BCrst/SFC/2004/0418Hagino.html")
+//        webView.loadUrl("https://www.w3.org/People/D%C3%BCrst/SFC/2004/0418Hagino.html")
     }
 
 }
